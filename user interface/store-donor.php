@@ -10,20 +10,20 @@ if (isset($_POST['submit'])) {
 	$weight = $_POST['weight'];
 	$blood_group = $_POST['blood_group'];
 	$age = $_POST['age'];
-	$diseases = $_POST['diseases'];
+	$diseases = $_POST['disease'];
 	$blood_test_report = $_POST['blood_test_report'];
 	$rules = $_POST['rule'];
 
-	$sql = "INSERT INTO `donors_information` (`user`,`name`, `address`, `contact_number`, `gender`, `weight`, `age`,`blood_group`, `diseases`, `blood_test_report`, `rules` ) VALUES ('$user_id',$name','$address','$contact_number', '$gender','$weight','$age','$blood_group','$diseases','$blood_test_report','$rules')";
-	// var_dump($sql);
+	$sql = "INSERT INTO `donors_information` (`user`,`name`, `address`, `contact_number`, `gender`, `weight`, `age`,`blood_group`, `diseases`, `blood_test_report`, `rules` ) VALUES ('$user_id','$name','$address','$contact_number', '$gender','$weight','$age','$blood_group','$diseases','$blood_test_report','$rules')";
+
 	$res = mysqli_query($conn, $sql);
-	// if($res){
-	// 	$_SESSION['status'] = "Account Created Successfully";
-	// header('location:blood.php');
-	// }
-	// else{
-	// 	echo("sdhc;kj");
-	// }
+	if($res){
+		$_SESSION['status'] = "Account Created Successfully";
+	header('location:blood.php');
+	}
+	else{
+		echo("sdhc;kj");
+	}
 	header('location:blood.php');
 
 }
