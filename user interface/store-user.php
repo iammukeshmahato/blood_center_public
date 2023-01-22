@@ -1,7 +1,6 @@
 <?PHP
 include('conn.php');
 if (isset($_POST['submit'])) {
-	// echo "php";
 	$first_name = $_POST['fname'];
 	$last_name = $_POST['lname'];
 	$email_address = $_POST['email'];
@@ -11,6 +10,6 @@ if (isset($_POST['submit'])) {
 
 	$sql = "INSERT INTO `user` (`first_name`, `last_name`, `email_address`, `phone_number`, `password`, `profile_pic`) VALUES ('$first_name','$last_name','$email_address', '$phone_number','$password','$profile_pic')";
 	$res = mysqli_query($conn, $sql);
-} else {
-	echo "NIASDJ";
+	header('location:login.php');
+
 }

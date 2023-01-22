@@ -59,10 +59,6 @@
             <input type="password" class="form-control" name="password" placeholder="Password">
             <label>Password</label>
           </div>
-          <div class="form-floating mb-3">
-            <input type="password" class="form-control" placeholder="Password">
-            <label>Confirm Password</label>
-          </div>
           <div class="input-group mb-3">
             <input type="file" class="form-control" name="profile_picture" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload">
           </div>
