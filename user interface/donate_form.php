@@ -3,7 +3,6 @@ session_start();
 ?>
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,6 +32,9 @@ session_start();
       margin-left: 50px;
       /*        background-color: red;*/
     }
+    form .part{
+      margin-top: 20px;
+    }
   </style>
 </head>
 
@@ -53,19 +55,19 @@ session_start();
       </div>
     </div>
     <form class="row g-3 needs-validation" method="post" action="store-donor.php" novalidate>
-      <div class="col-md-4">
+      <div class="col-md-4 part">
         <label for="validationCustom01" class="form-label">Name</label>
         <input type="text" class="form-control" id="validationCustom01" placeholder="your_name" name="name" required>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-4 part">
         <label for="validationCustom03" class="form-label">Address</label>
         <input type="text" class="form-control" id="validationCustom02" placeholder="your_address" name="address" required>
         <div class="invalid-feedback">
           Please provide a valid Address.
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 part">
         <label for="validationCustom04" class="form-label">Contact Number</label>
         <input type="text" class="form-control" id="validationCustom03" placeholder="your_phone number" name="contact_number" required>
         <div class="invalid-feedback">
@@ -73,7 +75,7 @@ session_start();
         </div>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-4 part">
         <label for="validationCustom06" class="form-label">Weight</label>
         <input type="text" class="form-control" id="validationCustom03" placeholder="your_Weight" name="weight" required>
         <div class="invalid-feedback">
@@ -81,7 +83,7 @@ session_start();
         </div>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-4 part">
         <label for="validationCustom07" class="form-label">Blood Group</label>
         <select class="form-select" name="blood_group" id="validationCustom04" required>
           <option>A+</option>
@@ -97,14 +99,14 @@ session_start();
           Please select your blood group.
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 part">
         <label for="validationCustom08" class="form-label">Age</label>
         <input type="text" class="form-control" name="age" id="validationCustom03" placeholder="your_age" required>
         <div class="invalid-feedback">
           <!-- Please provide a valid Phone Number. -->
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 part">
         <label for="validationCustom05" class="form-label">Gender</label><br>
         <div class="form-check form-check-inline">
           <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="option1">
@@ -119,7 +121,7 @@ session_start();
         </div>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-4 part">
         <label for="validationCustom05" class="form-label">Have you donated previously?</label>
         <div class="form-check form-check-inline">
           <input class="form-check-input" type="radio" name="prev_donate" id="inlineRadio1" value="option1">
@@ -133,9 +135,7 @@ session_start();
           Please Select one.
         </div>
       </div>
-      What was the last time you donated blood?
-
-      <div class="col-md-12">
+      <div class="col-md-12 part">
         <label for="validationCustom09" class="form-label">Do you suffer from or have suffered from any of the following diseases?</label>
         <div class="form-check">
           <input class="form-check-input" type="checkbox" value="heart disease" name="disease" id="heartDisease">
@@ -149,17 +149,69 @@ session_start();
             Diabetes
           </label>
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="tb" name="disease" id="tb">
-          <label class="form-check-label" for="tb">
+                  <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="tuberculosis" name="disease" id="tuberculosis">
+          <label class="form-check-label" for="tuberculosis">
             Tuberculosis
+          </label>
+          </div>
+                  <div class="form-check">
+          <input class="form-check-input" type="checkbox" 
+          value="lung disease" name="disease" id="lungDisease">
+          <label class="form-check-label" for="lungDisease">
+            Lung Disease
+          </label>
+        </div>
+                <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="allergic disease" name="disease" id="allergicDisease">
+          <label class="form-check-label" for="allergicDisease">
+            Allergic Disease
+          </label>
+        </div>
+                <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="kidney disease" name="disease" id="kidneyDisease">
+          <label class="form-check-label" for="kidneyDisease">
+            Kidney Disease
+          </label>
+        </div>
+                <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="sexual transmitted disease" name="disease" id="sexualtransmittedDisease">
+          <label class="form-check-label" for="sexualtransmittedDisease">
+            Sexually Transmitted Disease
+          </label>
+        </div>
+                <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="typhoid" name="disease" id="typhoid">
+          <label class="form-check-label" for="typhoid">
+            Typhoid ( last on year)
           </label>
         </div>
         <div class="invalid-feedback">
           Please provide a dieases.
         </div>
       </div>
-      <div class="col-md-12">
+      <div class="col-md-12 part">
+        <label for="validationCustom09" class="form-label">Is there any history of surgery or blood transfusion in the past six months?</label>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="major" name="surgery" id="major">
+          <label class="form-check-label" for="major">
+           Major
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="minor" name="surgery" id="minor">
+          <label class="form-check-label" for="minor">
+           Minor
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="bloodtransfusion" name="surgery" id="bloodtransfusion">
+          <label class="form-check-label" for="bloodtransfusion">
+           Blood Transfusion
+          </label>
+        </div>
+
+      <div class="col-md-12 part">
         <label for="validationCustom10" class="form-label">Blood Test Report</label>
         <input type="file" class="form-control" name="blood_test_report" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload" placeholder="Upload your blood test report">
         <div class="invalid-feedback">
@@ -167,25 +219,22 @@ session_start();
         </div>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-4 part">
         <label for="validationCustom01" class="form-label">Active Stauts</label>
         <div class="form-check">
           <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
           <label class="form-check-label" for="flexRadioDefault1">
-            Anytime
+            Online
           </label>
         </div>
         <div class="form-check">
           <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
           <label class="form-check-label" for="flexRadioDefault2">
-            Custom
+            Offline
           </label>
         </div>
-        <input type="datetime-local" class="form-control" id="validationCustom01" name="active" required>
       </div>
-
-
-      <div class="col-12">
+      <div class="col-12 part">
         <div class="form-check">
           <input class="form-check-input" type="checkbox" value="agreed" id="invalidCheck" name="rule" required>
           <label class="form-check-label" for="invalidCheck">
@@ -196,10 +245,9 @@ session_start();
           </div>
         </div>
       </div>
-      <div class="col-12">
+      <div class="col-12 part">
         <button class="btn btn-primary" name="submit" type="submit">Submit</button>
         <button class="btn btn-primary" type="reset">Reset</button>
-
       </div>
     </form>
   </div>

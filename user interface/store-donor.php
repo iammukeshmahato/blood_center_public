@@ -14,11 +14,14 @@ if (isset($_POST['submit'])) {
 	$blood_test_report = $_POST['blood_test_report'];
 	$rules = $_POST['rule'];
 
+	
+	
 	$sql = "INSERT INTO `donors_information` (`user`,`name`, `address`, `contact_number`, `gender`, `weight`, `age`,`blood_group`, `diseases`, `blood_test_report`, `rules` ) VALUES ('$user_id','$name','$address','$contact_number', '$gender','$weight','$age','$blood_group','$diseases','$blood_test_report','$rules')";
 
 	$res = mysqli_query($conn, $sql);
 	if($res){
-		$_SESSION['status'] = "Account Created Successfully";
+		// $_SESSION['status'] = "Account Created Successfully";
+		// var_dump(expression);
 	header('location:blood.php');
 	}
 	else{

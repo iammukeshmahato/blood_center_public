@@ -37,7 +37,7 @@
         </figure>
       </div>
       <div class="col">
-        <form method="post" action="store-user.php">
+        <form method="post" action="store-user.php" enctype="multipart/form-data">
 
           <div class="form-floating mb-3">
             <input type="text" class="form-control" name="fname" placeholder="FirstName">

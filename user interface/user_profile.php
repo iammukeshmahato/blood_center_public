@@ -1,4 +1,5 @@
 <?php
+include('conn.php');
 session_start();
 ?>
 <!doctype html>
@@ -10,25 +11,48 @@ session_start();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <style>
       .card img{
-        height: 300px;
+        height: 400px;
         object-fit: cover;
+      }
+      .header{
+/*        display: flex;*/
+        justify-content: center;
+        width: 60%;
+        margin-left: 20%;
+      }
+      .header h1{
+        text-align: center;
+      }
+      .card{
+        margin-left: 30%;
       }
     </style>
   </head>
   <body>
-  <div class="card" style="width: 18rem;">
-   <img src="user-img/niru.jpg" class="img-thumbnail" alt="">
-  <div class="card-body">
-    <h5 class="card-title">Donor Name</h5>
-    <p class="card-text">Blood Group</p>
-    <p class="card-text">Address</p>
-    <p class="card-text">Contact Number</p>
-    <p class="card-text">Active Status:</p>
-    <p class="card-text">Blood Report</p>
-
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <?php
+      // $total_donors = $_SESSION['id'];
+    ?>
+  <div class="header">
+    <h1>Donor Details</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </div>
-</div>
+  <div class="card mb-5" style="width: 28rem;">
+    <img src="user-img/niru.jpg" class="img-thumbnail" alt="">
+      <div class="card-body">
+        <h5 class="card-title">Donor Name</h5>
+        <span class="card-text">Blood Group</span ><br>
+        <span class="card-text">Address</span ><br>
+        <span class="card-text">Contact Number</span> <br>
+        <span class="card-text">Active Status:</span ><br>
+        <span class="card-text">Blood Report</span ><br>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+  </div>
 
 
 
