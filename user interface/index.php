@@ -9,12 +9,12 @@
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <style>
     .figure img {
-      height: 100px;
+/*      height: 100px;*/
       width: 100px;
-      margin-top: 12px;
+/*      margin-top: 12px;*/
     }
     nav {
-      height: 80px;
+/*      height: 80px;*/
 /*      min-height: 80px;*/
       box-shadow: 2px 4px 4px rgba(173, 162, 162, 0.50);
 
@@ -26,12 +26,12 @@
     }
 
     nav .collapse {
-      margin-left: 25px;
+/*      margin-left: 25px;*/
       font-size: 19px;
     }
     .profile img{
       height: 40px;
-      margin: 5px;
+/*      margin: 5px;*/
       width: 40px;
       object-fit: cover;
       border-radius: 50%;
@@ -56,7 +56,7 @@
 /*      background: red;*/
       width: 90%;
       align-items: center;
-      margin: 50px;
+/*      margin: 50px;*/
       border: 0px;
     }
 
@@ -67,32 +67,33 @@
 
     .card-body {
       text-align: justify;
-      width: 90%;
+/*      width: 90%;*/
+      font-size: 20px;
     }
     .card img{
-      height: 800px;
-      width: 700px;
+      /*height: 800px;
+      width: 700px;*/
       border: 0px;
       align-items: center;
     }
-    .container{
+    /*.container{
       width: 100%;
       background: black;
       color: white;
       margin: 0px;
       padding: 0px;
-    }
+    }*/
   </style>
 </head>
-<body>
+<body class="m-0 p-0">
 
-  <nav class="navbar navbar-expand-lg bg-light" id="navbar_top">
+  <nav class="navbar navbar-expand-lg bg-light" id="navbar_top h-25 w-100">
     <div class="container-fluid">
 
       <!-- <a class="navbar-brand" href="#">  -->
       <figure class="figure">
         <a href="index.php">
-         <img src="user-img/blood-center.png" class="figure-img img-fluid rounded">
+         <img src="user-img/blood-center.png" class="figure-img img-fluid rounded h-25" w-75>
         </a>
       </figure>
       <!-- </a> -->
@@ -116,20 +117,20 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              My Account
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="signup.php">Sign-Up</a></li>
-              <li><a class="dropdown-item" href="login.php">Log-In</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Blood
             </a>
             <ul class="dropdown-menu">
               <li><a href="blood.php" class="dropdown-item">Find Donor</a></li>
               <li><a href="donate_form.php" class="dropdown-item">Donate Blood</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              My Account
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="signup.php">Sign-Up</a></li>
+              <li><a class="dropdown-item" href="login.php">Log-In</a></li>
             </ul>
           </li>
         </ul>
@@ -139,51 +140,37 @@
       </div>
     </div>
   </nav>
-
-  <div id="carouselExampleCaptions" class="carousel slide m-5">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-        aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-        aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-        aria-label="Slide 3"></button>
+  <div id="carouselExample" class="carousel slide m-5">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="user-img/second-slider.png" class="d-block w-100" alt="...">
     </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="user-img/first-slider.png" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <!-- <p>Some representative placeholder content for the first slide.</p> -->
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="user-img/first-slider.png" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Second slide label</h5>
-          <p>Some representative placeholder content for the second slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="user-img/first-slider.png" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Third slide label</h5>
-          <p>Some representative placeholder content for the third slide.</p>
-        </div>
-      </div>
+    <div class="carousel-item">
+      <img src="user-img/first-slider.png" class="d-block w-100" alt="...">
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+    <div class="carousel-item">
+      <img src="user-img/first-slider.png" class="d-block w-100" alt="...">
+    </div>
   </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" style="background-color: rgb(153, 153, 153);
+   /* height: 3rem;
+    width: 2rem;*/
+    border-radius: 0.25rem;
+" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" style="background-color: rgb(153, 153, 153); color: black;
+    /*height: 3rem;
+    width: 2rem;
 
-
-
-  <div class="card">
+*/    border-radius: 0.25rem;
+" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+  <div class="card mx-2">
     <div class="card-header" id="activities">
       Our Activities
     </div>
@@ -222,10 +209,10 @@
       consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      <img src="user-img/blood.png" class="rounded mx-auto d-block" alt="...">
+      <img src="user-img/blood.png" class="rounded mx-auto d-block h-50 w-50" alt="...">
     </div>
   </div>
-   <div class="card">
+  <div class="card">
     <div class="card-header" id="contact">
       Contact
     </div>
@@ -246,7 +233,45 @@
       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </div>
   </div>
-  <div class="container footer">
+  <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+  <div class="col">
+    <div class="card">
+      <img src="user-img/niru.jpg" class="card-img-top w-100 h-50" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="user-img/niru.jpg" class="card-img-top w-100 h-100" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="user-img/niru.jpg" class="card-img-top w-100 h-100" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div> -->
+</div>
+<!--   <div class="container bg-dark text-light">
     <div class="row">
       <div class="col">
         <h3>Blood Center</h3>
@@ -260,10 +285,151 @@
         Column
       </div>
     </div>
-  </div>
+  </div> -->
+<div class="container my-5">
+  <!-- Footer -->
+  <footer
+          class="text-center text-lg-start text-white"
+          style="background-color: #929fba"
+          >
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+      <!-- Section: Links -->
+      <section class="">
+        <!--Grid row-->
+        <div class="row">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">
+              Blood Center
+            </h6>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <hr class="w-100 clearfix d-md-none" />
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">About</h6>
+            <p>
+              <a class="text-white">Activities</a>
+            </p>
+            <p>
+              <a class="text-white">Join as a team</a>
+            </p>
+            <p>
+              <a class="text-white">Donate Blood</a>
+            </p>
+            <p>
+              <a class="text-white">Help</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <hr class="w-100 clearfix d-md-none" />
+
+          <!-- Grid column -->
+          <hr class="w-100 clearfix d-md-none" />
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+            <p><i class="fas fa-home mr-3"></i> Kathmandu, Nepal</p>
+            <p><i class="fas fa-envelope mr-3"></i> info@gmail.com</p>
+            <p><i class="fas fa-phone mr-3"></i> 9861697303</p>
+            <p><i class="fas fa-print mr-3"></i> 9808644578</p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">Follow us</h6>
+
+            <!-- Facebook -->
+            <a
+               class="btn btn-dark btn-floating m-1"
+               style="background-color: #3b5998"
+               href="#!"
+               role="button"
+               ><i class="fab fa-facebook-f"></i
+              ></a>
+
+            <!-- Twitter -->
+            <a
+               class="btn btn-primary btn-floating m-1"
+               style="background-color: #55acee"
+               href="#!"
+               role="button"
+               ><i class="fab fa-twitter"></i
+              ></a>
+
+            <!-- Google -->
+            <a
+               class="btn btn-primary btn-floating m-1"
+               style="background-color: #dd4b39"
+               href="#!"
+               role="button"
+               ><i class="fab fa-google"></i
+              ></a>
+
+            <!-- Instagram -->
+            <a
+               class="btn btn-primary btn-floating m-1"
+               style="background-color: #ac2bac"
+               href="#!"
+               role="button"
+               ><i class="fab fa-instagram"></i
+              ></a>
+
+            <!-- Linkedin -->
+            <a
+               class="btn btn-primary btn-floating m-1"
+               style="background-color: #0082ca"
+               href="#!"
+               role="button"
+               ><i class="fab fa-linkedin-in"></i
+              ></a>
+            <!-- Github -->
+            <a
+               class="btn btn-primary btn-floating m-1"
+               style="background-color: #333333"
+               href="#!"
+               role="button"
+               ><i class="fab fa-github"></i
+              ></a>
+          </div>
+        </div>
+        <!--Grid row-->
+      </section>
+      <!-- Section: Links -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div
+         class="text-center p-3"
+         style="background-color: rgba(0, 0, 0, 0.2)"
+         >
+      © 2020 Copyright:
+      <a class="text-white" href="https://mdbootstrap.com/"
+         >bloodcenter.com</a
+        >
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+</div>
+<!-- End of .container -->
+
+
+
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
     crossorigin="anonymous"></script>
 </body>
-
 </html>

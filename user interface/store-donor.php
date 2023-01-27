@@ -11,12 +11,13 @@ if (isset($_POST['submit'])) {
 	$blood_group = $_POST['blood_group'];
 	$age = $_POST['age'];
 	$diseases = $_POST['disease'];
+	$prev_donate = $_POST['prev_donate'];
 	$blood_test_report = $_POST['blood_test_report'];
 	$rules = $_POST['rule'];
 
 	
 	
-	$sql = "INSERT INTO `donors_information` (`user`,`name`, `address`, `contact_number`, `gender`, `weight`, `age`,`blood_group`, `diseases`, `blood_test_report`, `rules` ) VALUES ('$user_id','$name','$address','$contact_number', '$gender','$weight','$age','$blood_group','$diseases','$blood_test_report','$rules')";
+	$sql = "INSERT INTO `donors_information` (`user`,`name`, `address`, `contact_number`, `gender`, `weight`, `age`,`blood_group`, `diseases`, `prev_donate`, `blood_test_report`, `rules` ) VALUES ('$user_id','$name','$address','$contact_number', '$gender','$weight','$age','$blood_group','$diseases','$prev_donate','$blood_test_report','$rules')";
 
 	$res = mysqli_query($conn, $sql);
 	if($res){

@@ -7,6 +7,7 @@ session_start();
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Donation Form</title>
+  <link href="http://nepalidatepicker.sajanmaharjan.com.np/nepali.datepicker/css/nepali.datepicker.v4.0.min.css" rel="stylesheet" type="text/css"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <style>
     .container {
@@ -14,7 +15,7 @@ session_start();
       width: 60%;
       margin: 5px;
       padding: 5px;
-      box-shadow: 3px 2px 4px 4px rgba(173, 162, 162, 0.50);
+      box-shadow: 2px 2px 2px 2px rgba(173, 162, 162, 0.30);
       /*        align-content: center;*/
       justify-content: center;
 
@@ -39,8 +40,8 @@ session_start();
 </head>
 
 <body>
-
-  <div class="container">
+<div class="d-flex justify-content-center align-items-center h-100">
+  <div class="container p-4">
     <div class="card mb-3">
       <div class="row g-0">
         <div class="col-md-4">
@@ -109,11 +110,11 @@ session_start();
       <div class="col-md-4 part">
         <label for="validationCustom05" class="form-label">Gender</label><br>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="option1">
+          <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="Male">
           <label class="form-check-label" for="inlineRadio1">Male</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="option2">
+          <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="Female">
           <label class="form-check-label" for="inlineRadio2">Female</label>
         </div>
         <div class="invalid-feedback">
@@ -124,17 +125,62 @@ session_start();
       <div class="col-md-4 part">
         <label for="validationCustom05" class="form-label">Have you donated previously?</label>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="prev_donate" id="inlineRadio1" value="option1">
+          <input class="form-check-input" type="radio" name="prev_donate" id="inlineRadio1" value="Yes">
           <label class="form-check-label" for="inlineRadio1">Yes</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="prev_donate" id="inlineRadio2" value="option2">
+          <input class="form-check-input" type="radio" name="prev_donate" id="inlineRadio2" value="No">
           <label class="form-check-label" for="inlineRadio2">No</label>
         </div>
         <div class="invalid-feedback">
           Please Select one.
         </div>
       </div>
+
+      <div class="col-md-4 part">
+        <label for="validationCustom06" class="form-label">What was the last time you donated blood?
+</label>
+        <input type="text" class="form-control" id="nepali-datepicker" placeholder="blood_donated_date" name="blood_donated_date" required>
+        <div class="invalid-feedback">
+          Enter Last Donated Time
+        </div>
+      </div>
+      <script src="http://nepalidatepicker.sajanmaharjan.com.np/nepali.datepicker/js/nepali.datepicker.v4.0.min.js" type="text/javascript"></script>
+      <script type="text/javascript">
+         window.onload = function() {
+                var mainInput = document.getElementById("nepali-datepicker");
+                mainInput.nepaliDatePicker();
+                /* Select your element */
+                var elm = document.getElementById("nepali-datepicker");
+                 
+                /* Initialize Datepicker with options */
+                elm.nepaliDatePicker({
+                    ndpTriggerButton: true
+                });
+            };
+      </script>
+
+      <script>
+         function showQuotaDiv() {
+            let quotaDiv = document.querySelector("#quotaCertificateDiv");
+            quotaDiv.style.display = "none";
+            let quotas = document.querySelectorAll("input[name=quota]");
+            quotas.forEach(quota => {
+                quota.addEventListener('click', () => {
+                    if (quotas[1].checked) {
+                        quotaDiv.style.display = "block";
+                        document.getElementById("quotaCertificate").setAttribute("required", "");
+                    } else {
+                        quotaDiv.style.display = "none";
+                        document.getElementById("quotaCertificate").removeAttribute("required");
+                    }
+                });
+            });
+        }
+
+        showQuotaDiv();
+      </script>
+
       <div class="col-md-12 part">
         <label for="validationCustom09" class="form-label">Do you suffer from or have suffered from any of the following diseases?</label>
         <div class="form-check">
@@ -251,10 +297,11 @@ session_start();
       </div>
     </form>
   </div>
-
+</div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
+
+       // Example starter JavaScript for disabling form submissions if there are invalid fields
     // (() => {
     //   'use strict'
 
