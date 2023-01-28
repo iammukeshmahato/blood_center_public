@@ -4,6 +4,7 @@ include('conn.php');
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,14 +17,17 @@ include('conn.php');
       width: 100px;
       margin-top: 12px;
     }
+
     nav {
       box-shadow: 2px 4px 4px rgba(173, 162, 162, 0.50);
       background-color: rgba(0, 0, 0, 0.3);
     }
+
     nav .collapse {
       margin-left: 25px;
       font-size: 19px;
     }
+
     .profile img {
       height: 40px;
       margin: 5px;
@@ -31,10 +35,12 @@ include('conn.php');
       object-fit: cover;
       border-radius: 50%;
     }
+
     .container .donor {
       border: 0.2px solid #C6C6C6;
       border-radius: 5px;
     }
+
     .container img {
       height: 100px;
       width: 100px;
@@ -42,16 +48,19 @@ include('conn.php');
       object-fit: cover;
       float: right;
     }
+
     .container .btn {
-/*      margin-top: 50px;*/
+      /*      margin-top: 50px;*/
       float: right;
     }
+
     .donorsearch {
       border: 2px rgba(233, 233, 233, 0.3);
-      box-shadow:  4px 4px 2px rgba(162, 162, 162, 0.11);
+      box-shadow: 4px 4px 2px rgba(162, 162, 162, 0.11);
     }
   </style>
 </head>
+
 <body>
   <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
@@ -106,62 +115,81 @@ include('conn.php');
       </div>
     </div>
   </nav>
-      <div class="col donorsearch justify-content-center align-items-center mb-2">
-        <form class="row g-3 needs-validation" novalidate method="post">
-          <div class="col-md-2 mb-4">
-            <label for="validationCustom01" class="form-label">Address</label>
-            <input type="text" class="form-control" id="validationCustom01" placeholder="Kathmandu" name="address" required>
-            <div class="valid-feedback">
-              Address
-            </div>
-          </div>
-          <div class="col-md-2">
-            <label for="validationCustom04" class="form-label">Blood Group</label>
-            <select class="form-select" id="validationCustom04" name="blood_group" required>
-              <option selected>SELETCT</option> 
-              <option value="A+">A+</option>
-              <option value="A-">A-</option>
-              <option value="AB+">AB+</option>
-              <option value="AB-">AB-</option>
-              <option value="B+">B+</option>
-              <option value="B-">B-</option>
-              <option value="O+">O+</option>
-              <option value="O-">O-</option>
-            </select>
-            <div class="invalid-feedback">
-              Please select a valid state.
-            </div>
-          </div>
-          <div class="col-md-1">
-            <!-- <label></label> -->
-            <button class="btn btn-primary form-control mt-5" type="submit" name="search">Search</button>
-          </div>
-        </form>
+  <div class="col donorsearch justify-content-center align-items-center mb-2">
+    <form class="row g-3 needs-validation" novalidate method="post">
+      <div class="col-md-2 mb-4">
+        <label for="validationCustom01" class="form-label">Address</label>
+        <input type="text" class="form-control" id="validationCustom01" placeholder="Kathmandu" name="address" required>
+        <div class="valid-feedback">
+          Address
+        </div>
       </div>
+      <div class="col-md-2">
+        <label for="validationCustom04" class="form-label">Blood Group</label>
+        <select class="form-select" id="validationCustom04" name="blood_group" required>
+          <option selected value="">SELETCT</option>
+          <option value="A+">A+</option>
+          <option value="A-">A-</option>
+          <option value="AB+">AB+</option>
+          <option value="AB-">AB-</option>
+          <option value="B+">B+</option>
+          <option value="B-">B-</option>
+          <option value="O+">O+</option>
+          <option value="O-">O-</option>
+        </select>
+        <div class="invalid-feedback">
+          Please select a valid state.
+        </div>
+      </div>
+      <div class="col-md-1">
+        <!-- <label></label> -->
+        <button class="btn btn-primary form-control mt-5" type="submit" name="search">Search</button>
+      </div>
+    </form>
+  </div>
 
-    <?php
-        if(isset($_POST['search'])){
-              $address=$_POST['address'];
-              // echo "$address";
-              $blood_group=$_POST['blood_group'];
-              // echo "$blood_group";
-              // $donor_address = "SELECT  * FROM donors_information where address = $address"; 
-              $sql = "SELECT * FROM donors_information WHERE blood_group='{$blood_group}' OR address like '$address' ";
-              // echo "$sql";
-              $res = mysqli_query($conn, $sql);
+  <?php
+  if (isset($_POST['search'])) {
+    $address = $_POST['address'] == "" ? null : $_POST['address'];
+    // echo "$address";
+    $blood_group = $_POST['blood_group'] == "" ? null : $_POST['blood_group'];
+    // echo "$blood_group";
+    $search = "";
 
-            }
-            else{
-              $sql = "SELECT * FROM donors_information";
-              $res = mysqli_query($conn, $sql);
-            }
-            if (mysqli_num_rows($res) > 0) {
-              // $sn = 1;
-              while ($data = mysqli_fetch_assoc($res)) { 
-            
-      ?>
+    if ($address && $blood_group) {
+      $sql = "SELECT * FROM donors_information left join user on donors_information.donor_id = user.id WHERE blood_group='{$blood_group}' and address like '%$address%' ";
+      $search = "<b>$address</b> and blood group <b>$blood_group</b>";
+    } else if ($address || $blood_group) {
+      if ($address) {
+        $sql = "SELECT * FROM donors_information left join user on donors_information.donor_id = user.id WHERE address like '%$address%' ";
+        $search = "address <b>$address</b>";
+      } elseif ($blood_group) {
+        $sql = "SELECT * FROM donors_information left join user on donors_information.donor_id = user.id WHERE blood_group='{$blood_group}' ";
+        $search = "blood group <b>$blood_group</b>";
+      } else {
+        $sql = "SELECT * FROM donors_information left join user on donors_information.donor_id = user.id";
+        $search = "<b>$address</b> and blood group <b>$blood_group</b>";
+      }
+    } else {
+      $sql = "SELECT * FROM donors_information left join user on donors_information.donor_id = user.id";
+      $search = "<b>$address</b> and blood group <b>$blood_group</b>";
+    }
+    
+    // echo "$sql";
+    // $res = mysqli_query($conn, $sql);
+    
+  } else {
+    $sql = "SELECT * FROM donors_information left join user on donors_information.donor_id = user.id";
+    $search = "<b>$address</b> and blood group <b>$blood_group</b>";
+  }
+  $res = mysqli_query($conn, $sql);
+  if (mysqli_num_rows($res) > 0) {
+    // $sn = 1;
+    while ($data = mysqli_fetch_assoc($res)) {
 
-  
+  ?>
+
+
 
       <div class="container mb-2 justify-content-center align-items-center">
         <div class="row">
@@ -182,19 +210,21 @@ include('conn.php');
             </div>
           </div>
         </div>
-      <!-- </div> -->
-        
+        <!-- </div> -->
+
       </div>
-      <?php
-          }
-          }
-          ?>
-  
+  <?php
+    }
+  }else{
+    echo "no record found for $search";
+  }
+  ?>
 
 
-    
 
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 
 </html>
